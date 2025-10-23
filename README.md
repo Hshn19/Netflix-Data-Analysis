@@ -32,5 +32,5 @@ It combines **Python** for data cleaning and exploration with **Power BI** for i
 🎓 Data Science Student | 💻 First Data Project
 
 ### 📝 Notes
-- Dataset: [Netflix Titles on Kaggle] (https://www.kaggle.com/datasets/harshinikumaravell/netflix-tv-shows-and-movie)
+- Dataset: [Netflix Titles on Kaggle] (https://www.kaggle.com/code/harshinikumaravell/netflix-shows-and-movies-analysis)
 - You can run the analysis directly on **Kaggle Notebooks**
