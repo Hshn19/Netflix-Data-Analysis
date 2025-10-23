@@ -7,7 +7,7 @@ It combines **Python** for data cleaning and exploration with **Power BI** for i
 
 ## 🔍 Key Insights
 - Dataset of **8K+ titles**
-- **
+- **67% Movies**, **33% TV Shows**
 - **USA** leads production, with **India** emerging rapidly
 - TV Shows surged **3x since 2015**
 - Most popular genre: **International Movies**
@@ -16,15 +16,16 @@ It combines **Python** for data cleaning and exploration with **Power BI** for i
 - **Python** - Data cleaning & EDA ('pandas', 'matplotlib')
 - **Power BI** - Dashboard design & Storytelling
 
-** 📂 Project Structure
+## How to View Dashboard
+1. Download 'Netflix_Dashboard_Main.pbix'
+2. Open in **Power BI Desktop (free)**
+3. Click slicers, bars, and explore!
 
-Netflix-Data-Analysis
-|
-|----- data/   # netflix_cleaned.csv
-|----- code/   # Kaggle notebooks (Python analysis)
-|----- dashboard/   # Netflix_Dashboard_Main.pbix
-|----- images/    # Dashboard screenshots
------- README.md
+** 📂 Files
+- 'code/'  -> Kaggle Notebooks
+- 'data/netflix_cleaned.csv'  -> Kaggle dataset
+- 'dashboard/Netflix_Dashboard_Main.pbix'  -> Full interactive file
+- 'images/'  -> Screenshots (for quick view)
 
 ## 👩‍💻Author
 **Harshini**
