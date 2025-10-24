@@ -1,0 +1,72 @@
+# Step 1: Import libraries
+import pandas as pd
+
+# Step 2: Load dataset
+df = pd.read_csv('/kaggle/input/netflix-tv-shows-and-movie/netflix_titles.csv')
+
+# Step 3: Preview data
+df.head()
+
+# Step 4: Check general info
+df.info()
+
+# Check for duplicate rows
+duplicates = df.duplicated().sum()
+print(f"Number of duplicated rows: {duplicates}")
+
+# Check for missing values
+df.isnull().sum()
+
+# Fill missing text-based data with "Unknown"
+df['director'].fillna('Unknown', inplace=True)
+df['cast'].fillna('Unknown', inplace=True)
+df['country'].fillna('Unknown', inplace=True)
+df['date_added'].fillna('Unknown', inplace=True)
+df['rating'].fillna('Unknown', inplace=True)
+df['duration'].fillna('Unknown', inplace=True)
+
+#EDA 
+# Count of each content type (Movies vs TV Shows)
+df['type'].value_counts()
+
+# To visualize the count of each content type
+import matplotlib.pyplot as plt
+
+df['type'].value_counts().plot(kind='bar', color=['red', 'black'])
+plt.title('Movies vs TV Shows on Netflix')
+plt.xlabel('Type')
+plt.ylabel('Count')
+plt.show()
+
+# Top 10 Countries with the Most Titles
+# Filter out 'Unknown' from analysis
+df_no_unknown = df[df['country'] != 'Unknown']
+
+top_countries = df_no_unknown['country'].value_counts().head(10)
+top_countries.plot(kind='bar', figsize=(10,5))
+plt.title('Top 10 Countries with Most Netflix Titles')
+plt.xlabel('Country')
+plt.ylabel('Number of Titles')
+plt.show()
+
+# Content Growth Over the Years
+df['release_year'].value_counts().sort_index().plot(kind='line', figsize=(12,6))
+plt.title('Number of Netflix Titles Released Over the Years')
+plt.xlabel('Release Year')
+plt.ylabel('Count')
+plt.grid(True)
+plt.show
+
+# Most Common Genres
+from collections import Counter
+
+# Split genres and flatten the list
+genre_list = df['listed_in'].dropna().apply(lambda x: x.split(','))
+flat_genres = [genre.strip() for sublist in genre_list for genre in sublist]
+
+# Count top genres
+genre_counts = Counter(flat_genres)
+pd.Series(genre_counts).sort_values(ascending=False).head(10)
+
+# Export to CSV
+df.to_csv('/kaggle/working/netflix_cleaned.csv', index=False)
